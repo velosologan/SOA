@@ -9,15 +9,15 @@ import javax.swing.JOptionPane;
 
 public class ClientOperation {
 
-	private static RMIInterface look_up;
+	private static RMIInterface reference;
 
 	public static void main(String[] args) 
 		throws MalformedURLException, RemoteException, NotBoundException {
 		
-		look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
+		reference = (RMIInterface) Naming.lookup("//localhost/MyServer");
 		String txt = JOptionPane.showInputDialog("What is your name?");
 			
-		String response = look_up.helloTo(txt);
+		String response = reference.helloTo(txt);
 		JOptionPane.showMessageDialog(null, response);
 
 	}
