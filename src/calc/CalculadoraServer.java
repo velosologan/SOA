@@ -1,28 +1,24 @@
 package calc;
 
+import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
 
-@WebService(endpointInterface = "calc.CalculadoraServer")
-public class CalculadoraServer implements CalculadoraService {
+@WebService
+@SOAPBinding(style = Style.RPC)
+public interface CalculadoraServer {
 
-	@Override
-	public float soma(float a, float b) {
-		return a + b;
-	}
+	@WebMethod
+	float soma(float a, float b);
 
-	@Override
-	public float subtracao(float a, float b) {
-		return a - b;
-	}
+	@WebMethod
+	float subtracao(float a, float b);
 
-	@Override
-	public float multiplicacao(float a, float b) {
-		return a * b;
-	}
+	@WebMethod
+	float multiplicacao(float a, float b);
 
-	@Override
-	public float divisao(float a, float b) {
-		return a / b;
-	}
+	@WebMethod
+	float divisao(float a, float b);
 
 }
